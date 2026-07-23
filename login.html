@@ -687,35 +687,34 @@
                 mobile = document.getElementById('input-phone').value.trim();
                 password = document.getElementById('input-phone-pass').value;
                 if (!mobile || !password) return;
-                // alert('Logging in with phone number: ' + mobile);
             } else {
                 mobile = document.getElementById('input-email').value.trim();
                 password = document.getElementById('input-email-pass').value;
                 if (!mobile || !password) return;
-                // alert('Logging in with email: ' + mobile);
             }
 
-            const url = `https://script.google.com/macros/s/AKfycbx-GsXRqK_pQ5F7fErm_ld2LvNUF9m391LEedk7gAQiwwfGIpYXKhqvRPhHXGFb0JzS/exec?mobile=${encodeURIComponent(mobile)}&password=${encodeURIComponent(password)}`;
+            const url = `https://script.google.com/macros/s/AKfycby2Zw1Rg82PLPYLUFDy3jHDfhdrVVn1t0wlF1EevvS84rRy4zt692_OOYGVRZeyVQ3coA/exec?mobile=${encodeURIComponent(mobile)}&password=${encodeURIComponent(password)}`;
 
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
-                    console.log('Response Data:', data); // Log the response to ensure it's correct
+                    console.log('Response Data:', data);
                     if (data.status === 'success') {
-                        // Redirect using replace to avoid storing the history entry
                         window.location.replace('https://19yaarwin.com/#/');
                     } else {
-                        alert('Error: ' + data.message);
+                        // Use data.error if present, fallback to data.message
+                        alert('Error: ' + (data.error || data.message || 'Login failed'));
                     }
                 })
                 .catch((error) => {
                     console.error('Fetch Error:', error);
+                    alert('Network error – please try again.');
                 });
         }
 
-        function goToRegister() {
-            window.location.href = "index.html#register";
-        }
+        // function goToRegister() {
+        //     window.location.href = "index.html#register";
+        // }
     </script>
 
 </body>
