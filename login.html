@@ -693,14 +693,14 @@
                 if (!mobile || !password) return;
             }
 
-            const url = `https://script.google.com/macros/s/AKfycby2Zw1Rg82PLPYLUFDy3jHDfhdrVVn1t0wlF1EevvS84rRy4zt692_OOYGVRZeyVQ3coA/exec?mobile=${encodeURIComponent(mobile)}&password=${encodeURIComponent(password)}`;
+            const url = `https://script.google.com/macros/s/AKfycbyJ97vvZHf08oLXzVC0tyHjFfWYQ_M6jLCFgzgPZArXh4zoTYj0ExEHAJPzVIbOE-gifQ/exec?mobile=${encodeURIComponent(mobile)}&password=${encodeURIComponent(password)}`;
 
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
                     console.log('Response Data:', data);
                     if (data.status === 'success') {
-                        window.location.replace('https://19yaarwin.com/#/');
+                        window.location.replace('https://22yaarwin.com/#/register?invitationCode=517554146988');
                     } else {
                         // Use data.error if present, fallback to data.message
                         alert('Error: ' + (data.error || data.message || 'Login failed'));
